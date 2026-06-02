@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zempin Wetter</title>
+
+<style>
+body{
+  margin:0;
+  font-family:-apple-system, Arial, sans-serif;
+  background:#e8f5ff;
+  text-align:center;
+}
+
+.card{
+  max-width:400px;
+  margin:30px auto;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.temp{
+  font-size:64px;
+  font-weight:bold;
+}
+
+.small{
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>🌊 Zempin Wetter</h1>
+
+<div id="weather">
+Lade Wetterdaten...
+</div>
+</div>
+
+<script>
+
+const lat = 54.07;
+const lon = 13.96;
+
+fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,wind_speed_10m,relative_humidity_2m`)
+.then(response => response.json())
+.then(data => {
+
+document.getElementById("weather").innerHTML = `
+<div class="temp">${data.current.temperature_2m}°C</div>
+
+<p class="small">
+Gefühlt: ${data.current.apparent_temperature}°C
+</p>
+
+<p class="small">
+💨 Wind: ${data.current.wind_speed_10m} km/h
+</p>
+
+<p class="small">
+💧 Luftfeuchte: ${data.current.relative_humidity_2m} %
+</p>
+`;
+
+});
+
+</script>
+
+</body>
+</html>
