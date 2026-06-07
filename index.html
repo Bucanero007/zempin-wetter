@@ -52,6 +52,18 @@ const days = 14;
 fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,wind_speed_10m,wind_direction_10m,relative_humidity_2m&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=${days}`)
 .then(response => response.json())
 .then(data => {
+let dir = data.current.wind_direction_10m;
+
+let windText = "";
+
+if(dir >= 337.5 || dir < 22.5) windText = "N ⬆️";
+else if(dir < 67.5) windText = "NO ↗️";
+else if(dir < 112.5) windText = "O ➡️";
+else if(dir < 157.5) windText = "SO ↘️";
+else if(dir < 202.5) windText = "S ⬇️";
+else if(dir < 247.5) windText = "SW ↙️";
+else if(dir < 292.5) windText = "W ⬅️";
+else windText = "NW ↖️";
 let forecast = "<h3>📅 14-Tage-Vorschau</h3>";
 
 for(let i = 0; i < data.daily.time.length; i++){
@@ -80,7 +92,7 @@ Gefühlt: ${data.current.apparent_temperature}°C
 </p>
 
 <p class="small">
-🧭 Richtung: ${data.current.wind_direction_10m}°
+🧭 Windrichtung: ${windText}
 </p>
 
 <p class="small">
