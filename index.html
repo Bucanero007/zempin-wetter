@@ -70,7 +70,11 @@ for(let i = 0; i < data.daily.time.length; i++){
 
 forecast += `
 <p class="small">
-${data.daily.time[i]}
+${new Date(data.daily.time[i]).toLocaleDateString('de-DE', {
+weekday: 'short',
+day: '2-digit',
+month: '2-digit'
+})}
 <br>
 🌡 ${Math.round(data.daily.temperature_2m_max[i])}° /
 ${Math.round(data.daily.temperature_2m_min[i])}°
