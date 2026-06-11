@@ -64,6 +64,20 @@ else if(dir < 202.5) windText = "S ⬇️";
 else if(dir < 247.5) windText = "SW ↙️";
 else if(dir < 292.5) windText = "W ⬅️";
 else windText = "NW ↖️";
+let strandindex = "🟡 Gut";
+
+if(
+  data.current.temperature_2m >= 20 &&
+  data.current.wind_speed_10m < 20
+){
+  strandindex = "🟢 Perfekt";
+}
+
+if(
+  data.current.wind_speed_10m > 30
+){
+  strandindex = "🔴 Sehr windig";
+}
 let forecast = "<h3>📅 14-Tage-Vorschau</h3>";
 
 for(let i = 0; i < data.daily.time.length; i++){
