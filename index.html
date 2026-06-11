@@ -49,7 +49,7 @@ const lat = 54.07;
 const lon = 13.96;
 const days = 14;
 
-fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,wind_speed_10m,wind_direction_10m,relative_humidity_2m&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunshine_duration&forecast_days=${days}`)
+fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,wind_speed_10m,wind_direction_10m,relative_humidity_2m&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=${days}`)
 .then(response => response.json())
 .then(data => {
 let dir = data.current.wind_direction_10m;
