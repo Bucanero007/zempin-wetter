@@ -81,15 +81,7 @@ if(
 let forecast = "<h3>📅 14-Tage-Vorschau</h3>";
 let icon = "";
 for(let i = 0; i < data.daily.time.length; i++){
-let code = data.daily.weather_code[i];
 
-if(code === 0) icon = "☀️";
-else if(code <= 3) icon = "🌤️";
-else if(code <= 48) icon = "☁️";
-else if(code <= 67) icon = "🌦️";
-else if(code <= 82) icon = "🌧️";
-else if(code <= 99) icon = "⛈️";
-else icon = "❓";
 forecast += `
 <p class="small">
 ${new Date(data.daily.time[i]).toLocaleDateString('de-DE', {
