@@ -81,7 +81,14 @@ if(
 let forecast = "<h3>📅 14-Tage-Vorschau</h3>";
 let icon = "";
 for(let i = 0; i < data.daily.time.length; i++){
+let rain = data.daily.precipitation_probability_max[i];
 
+let icon = "☀️";
+
+if(rain >= 20) icon = "🌤️";
+if(rain >= 40) icon = "🌦️";
+if(rain >= 60) icon = "🌧️";
+if(rain >= 80) icon = "⛈️";
 forecast += `
 <p class="small">
 ${new Date(data.daily.time[i]).toLocaleDateString('de-DE', {
