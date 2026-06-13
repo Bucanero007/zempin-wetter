@@ -135,7 +135,14 @@ ${forecast}
 `;
 
 });
+fetch("https://marine-api.open-meteo.com/v1/marine?latitude=54.07&longitude=13.96&current=sea_surface_temperature")
+.then(response => response.json())
+.then(data => {
 
+document.getElementById("watertemp").innerHTML =
+`🌊 Ostsee: ${data.current.sea_surface_temperature}°C`;
+
+});
 </script>
 
 </body>
