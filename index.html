@@ -135,14 +135,16 @@ Gefühlt: ${data.current.apparent_temperature}°C
 <p class="small">
 💧 Luftfeuchte: ${data.current.relative_humidity_2m} %
 </p>
+<div class="info-box">
+
 <p class="small" id="watertemp">
-
 🌊 Ostsee: Lade Wassertemperatur...
-
 </p>
+
 <p class="small">
 🏖️ Strandindex: ${strandindex}
 </p>
+
 <p class="small">
 🌅 Aufgang:
 ${new Date(data.daily.sunrise[0]).toLocaleTimeString('de-DE',{
@@ -158,6 +160,8 @@ hour:'2-digit',
 minute:'2-digit'
 })}
 </p>
+
+</div>
 ${forecast}
 `;
 
