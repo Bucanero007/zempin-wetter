@@ -68,6 +68,13 @@ fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&c
 .then(data => {
 let dir = data.current.wind_direction_10m;
 window.windSpeed = data.current.wind_speed_10m;
+let windwarnung = "";
+
+if(window.windSpeed > 40)
+  windwarnung = "🚨 Starker Wind am Strand";
+
+else if(window.windSpeed > 25)
+  windwarnung = "⚠️ Frischer Wind am Strand";
 let windText = "";
 
 if(dir >= 337.5 || dir < 22.5) windText = "N ⬆️";
