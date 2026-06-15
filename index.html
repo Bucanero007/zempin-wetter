@@ -167,7 +167,9 @@ Gefühlt: ${data.current.apparent_temperature}°C
 <p class="small" id="badeampel">
 🏊 Badeampel: Wird berechnet...
 </p>
-
+<p class="small">
+${windwarnung}
+</p>
 <p class="small">
 🌅 Aufgang:
 ${new Date(data.daily.sunrise[0]).toLocaleTimeString('de-DE',{
