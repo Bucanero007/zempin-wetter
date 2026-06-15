@@ -103,6 +103,10 @@ let forecast = "<h3>📅 14-Tage-Vorschau</h3>";
 let icon = "";
 for(let i = 0; i < data.daily.time.length; i++){
 let rain = data.daily.precipitation_probability_max[i];
+let regenampel = "🟢";
+
+if(rain >= 30) regenampel = "🟠";
+if(rain >= 60) regenampel = "🔵";
 let rainColor = "green";
 
 if(rain >= 30) rainColor = "orange";
