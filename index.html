@@ -120,7 +120,9 @@ month: '2-digit'
 &nbsp;&nbsp;
 ⬇️ ${Math.round(data.daily.temperature_2m_min[i])}°
 &nbsp;&nbsp;
+<span style="color:${rainColor};">
 🌧 ${data.daily.precipitation_probability_max[i]}%
+</span>
 <br>
 ☀️ ${Math.round(data.daily.sunshine_duration[i] / 3600)} h
 </p>
