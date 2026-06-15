@@ -67,13 +67,6 @@ fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&c
 .then(response => response.json())
 .then(data => {
 let dir = data.current.wind_direction_10m;
-let badeampel = "🟡 Frisch";
-
-if(data.current.wind_speed_10m < 20)
-  badeampel = "🟢 Perfekt";
-
-if(data.current.wind_speed_10m > 30)
-  badeampel = "🔴 Sehr windig";
 
 let windText = "";
 
@@ -202,6 +195,10 @@ let badeampel = "🔵 Erfrischend";
 
 if(wasser >= 17) badeampel = "🟡 Frisch";
 if(wasser >= 20) badeampel = "🟢 Perfekt";
+
+// Wind berücksichtigt
+if(window.windSpeed > 20) badeampel = "🟠 Windig";
+if(window.windSpeed > 30) badeampel = "🔴 Sehr windig";
 
 document.getElementById("badeampel").innerHTML =
 `🏊 Badeampel: ${badeampel}`;
