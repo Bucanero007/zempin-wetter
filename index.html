@@ -234,6 +234,14 @@ let wasser = data.current.sea_surface_temperature;
 document.getElementById("watertemp").innerHTML =
 `🌊 Ostsee: ${wasser}°C`;
 
+})
+.catch(error => {
+
+document.getElementById("watertemp").innerHTML =
+"🌊 Ostsee: momentan nicht verfügbar";
+
+});
+
 let badeampel = "🔵 Erfrischend";
 
 if(wasser >= 17) badeampel = "🟡 Frisch";
