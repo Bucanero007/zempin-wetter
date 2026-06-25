@@ -229,20 +229,16 @@ fetch("https://marine-api.open-meteo.com/v1/marine?latitude=54.07&longitude=13.9
 .then(response => response.json())
 .then(data => {
 
+let wasser = data.current.sea_surface_temperature;
+
 document.getElementById("watertemp").innerHTML =
-`🌊 Ostsee: ${data.current.sea_surface_temperature}°C`;
-
-
-
-
-
+`🌊 Ostsee: ${wasser}°C`;
 
 let badeampel = "🔵 Erfrischend";
 
 if(wasser >= 17) badeampel = "🟡 Frisch";
 if(wasser >= 20) badeampel = "🟢 Perfekt";
 
-// Wind berücksichtigt
 if(window.windSpeed > 20) badeampel = "🟠 Windig";
 if(window.windSpeed > 30) badeampel = "🔴 Sehr windig";
 
